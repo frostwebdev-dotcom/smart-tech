@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
+  --background: #fafbfc;
   --foreground: #0f172a;
   --muted: #64748b;
   --muted-foreground: #475569;
@@ -9,18 +9,20 @@
   --card-foreground: #0f172a;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --primary: #0f172a;
-  --primary-foreground: #f8fafc;
-  --accent: #f1f5f9;
+  --primary: #0d9488;
+  --primary-hover: #0f766e;
+  --primary-foreground: #ffffff;
+  --accent: #f0fdfa;
   --accent-foreground: #0f172a;
-  --ring: #0f172a;
-  --radius: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --nav-bg: rgba(255, 255, 255, 0.8);
+  --ring: #0d9488;
+  --radius: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --nav-bg: rgba(255, 255, 255, 0.85);
   --nav-border: rgba(226, 232, 240, 0.8);
-  --hero-gradient-start: #f8fafc;
-  --hero-gradient-end: #f1f5f9;
+  --hero-gradient-start: #f0fdfa;
+  --hero-gradient-end: #e0f2fe;
+  --spotlight: rgba(13, 148, 136, 0.08);
 }
 
 @theme inline {
@@ -46,23 +48,25 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #f8fafc;
+    --background: #0a0f0e;
+    --foreground: #f0fdfa;
     --muted: #94a3b8;
-    --muted-foreground: #cbd5e1;
-    --card: #141414;
-    --card-foreground: #f8fafc;
-    --border: #27272a;
-    --input: #27272a;
-    --primary: #f8fafc;
+    --muted-foreground: #94a3b8;
+    --card: #111827;
+    --card-foreground: #f0fdfa;
+    --border: #1f2937;
+    --input: #1f2937;
+    --primary: #2dd4bf;
+    --primary-hover: #5eead4;
     --primary-foreground: #0f172a;
-    --accent: #27272a;
-    --accent-foreground: #f8fafc;
-    --ring: #f8fafc;
-    --nav-bg: rgba(10, 10, 10, 0.85);
-    --nav-border: rgba(39, 39, 42, 0.8);
+    --accent: #134e4a;
+    --accent-foreground: #f0fdfa;
+    --ring: #2dd4bf;
+    --nav-bg: rgba(10, 15, 14, 0.9);
+    --nav-border: rgba(31, 41, 55, 0.8);
     --hero-gradient-start: #0f172a;
-    --hero-gradient-end: #0a0a0a;
+    --hero-gradient-end: #134e4a;
+    --spotlight: rgba(45, 212, 191, 0.12);
   }
 }
 
@@ -91,6 +95,18 @@ html {
 
 /* Selection */
 ::selection {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Subtle grid pattern for hero */
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0);
+  background-size: 32px 32px;
+  background-position: 0 0;
+}
+
+.font-heading {
+  font-family: var(--font-heading), var(--font-sans), system-ui, sans-serif;
 }

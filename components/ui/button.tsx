@@ -15,6 +15,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant = "primary",
       size = "default",
       type = "button",
+      asChild = false,
       ...props
     },
     ref
@@ -36,11 +37,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       default: "h-11 px-6 text-base",
       lg: "h-12 px-8 text-lg",
     };
+    const composedClassName = cn(base, variants[variant], sizes[size], className);
+
+    if (asChild && React.isValidElement(props.children)) {
+      const child = React.Children.only(props.children);
+      const { children: _children, ...restProps } = props;
+      return React.cloneElement(child as React.ReactElement<{ className?: string }>, {
+        ...restProps,
+        className: cn(composedClassName, (child.props as { className?: string }).className),
+        ref,
+      });
+    }
+
     return (
       <button
         type={type}
         ref={ref}
-        className={cn(base, variants[variant], sizes[size], className)}
+        className={composedClassName}
         {...props}
       />
     );
