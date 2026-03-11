@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Sparkles, Heart } from "lucide-react";
+import { ArrowRight, Code2, Sparkles, Heart, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
 
 export function Hero() {
   return (
@@ -77,6 +78,27 @@ export function Hero() {
             <Heart className="h-4 w-4 text-primary/70" aria-hidden />
             <span>Loved by founders and teams who care about quality</span>
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"
+          >
+            <a
+              href={PHONE_TEL}
+              className="inline-flex items-center gap-2 font-medium text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            >
+              <Phone className="h-4 w-4 shrink-0" aria-hidden />
+              {PHONE_NUMBER}
+            </a>
+            <a
+              href={CONTACT_EMAIL_MAILTO}
+              className="inline-flex items-center gap-2 font-medium text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            >
+              <Mail className="h-4 w-4 shrink-0" aria-hidden />
+              {CONTACT_EMAIL}
+            </a>
+          </motion.div>
         </div>
 
         <motion.div
@@ -85,14 +107,22 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 md:mt-24 relative"
         >
-          <div className="rounded-2xl border border-border bg-card/95 shadow-2xl shadow-primary/10 overflow-hidden max-w-4xl backdrop-blur-sm">
-            <div className="aspect-video flex flex-col">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-accent/60">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-400" aria-hidden />
-                <span className="h-2.5 w-2.5 rounded-full bg-amber-400" aria-hidden />
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden />
+          <div
+            className="rounded-2xl overflow-hidden max-w-4xl shadow-2xl shadow-black/25 ring-1 ring-white/10"
+            style={{ background: "#1c282d" }}
+          >
+            <div className="aspect-video flex flex-col min-h-[200px]">
+              {/* Window chrome */}
+              <div
+                className="flex items-center gap-2 px-4 py-3 border-b border-white/10"
+                style={{ background: "#151e22" }}
+              >
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" aria-hidden />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" aria-hidden />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" aria-hidden />
               </div>
-              <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-3 p-6 md:p-8">
+              {/* Service cards — icons and labels in light teal/aqua per reference */}
+              <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-3 p-6 md:p-8 min-h-[140px]">
                 {[
                   { Icon: Code2, label: "Web & App" },
                   { Icon: Sparkles, label: "AI Solutions" },
@@ -101,10 +131,18 @@ export function Hero() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="rounded-xl bg-accent/60 border border-border flex flex-col items-center justify-center gap-2 p-4 md:p-6 min-h-[80px] transition-colors hover:bg-primary/5 hover:border-primary/20"
+                    className="rounded-xl flex flex-col items-center justify-center gap-3 p-4 md:p-6 min-h-[88px] transition-all hover:brightness-110"
+                    style={{ background: "#252d33" }}
                   >
-                    <item.Icon className="h-6 w-6 text-primary" aria-hidden />
-                    <span className="text-xs md:text-sm font-medium text-muted-foreground text-center">
+                    <item.Icon
+                      className="h-7 w-7 md:h-8 md:w-8 shrink-0"
+                      style={{ color: "#7dd3c0" }}
+                      aria-hidden
+                    />
+                    <span
+                      className="text-xs md:text-sm font-medium text-center"
+                      style={{ color: "#7dd3c0" }}
+                    >
                       {item.label}
                     </span>
                   </div>

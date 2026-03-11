@@ -4,9 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -67,7 +68,23 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href={PHONE_TEL}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded whitespace-nowrap"
+              aria-label={`Call us: ${PHONE_NUMBER}`}
+            >
+              <Phone className="h-4 w-4 shrink-0" aria-hidden />
+              {PHONE_NUMBER}
+            </a>
+            <a
+              href={CONTACT_EMAIL_MAILTO}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded whitespace-nowrap"
+              aria-label={`Email us: ${CONTACT_EMAIL}`}
+            >
+              <Mail className="h-4 w-4 shrink-0" aria-hidden />
+              {CONTACT_EMAIL}
+            </a>
             <Button asChild size="default">
               <Link href="/contact">Get in touch</Link>
             </Button>
@@ -112,7 +129,27 @@ export function Navbar() {
                     </Link>
                   </li>
                 ))}
-                <li className="pt-2 px-4">
+                <li className="px-4 pt-2">
+                  <a
+                    href={PHONE_TEL}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 py-3 text-sm font-medium text-primary"
+                  >
+                    <Phone className="h-4 w-4 shrink-0" aria-hidden />
+                    {PHONE_NUMBER}
+                  </a>
+                </li>
+                <li className="px-4">
+                  <a
+                    href={CONTACT_EMAIL_MAILTO}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
+                  >
+                    <Mail className="h-4 w-4 shrink-0" aria-hidden />
+                    {CONTACT_EMAIL}
+                  </a>
+                </li>
+                <li className="px-4">
                   <Button asChild className="w-full" size="lg">
                     <Link href="/contact" onClick={() => setOpen(false)}>
                       Get in touch

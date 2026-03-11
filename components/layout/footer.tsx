@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Phone, Mail } from "lucide-react";
+import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
 
 const footerLinks = {
   main: [
@@ -36,6 +38,20 @@ export function Footer() {
             <p className="mt-4 text-sm text-muted-foreground max-w-xs leading-relaxed">
               We build the digital products you imagine—with care for your vision, your timeline, and what you love doing.
             </p>
+            <a
+              href={PHONE_TEL}
+              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            >
+              <Phone className="h-4 w-4 shrink-0" aria-hidden />
+              {PHONE_NUMBER}
+            </a>
+            <a
+              href={CONTACT_EMAIL_MAILTO}
+              className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            >
+              <Mail className="h-4 w-4 shrink-0" aria-hidden />
+              {CONTACT_EMAIL}
+            </a>
           </div>
 
           <div>

@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
 
 export function CtaSection() {
   return (
@@ -41,7 +42,7 @@ export function CtaSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-10"
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button
             asChild
@@ -53,6 +54,22 @@ export function CtaSection() {
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </Button>
+          <span className="text-primary-foreground/90 text-sm">or</span>
+          <a
+            href={PHONE_TEL}
+            className="inline-flex items-center gap-2 text-primary-foreground font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+          >
+            <Phone className="h-5 w-5 shrink-0" aria-hidden />
+            {PHONE_NUMBER}
+          </a>
+          <span className="text-primary-foreground/70">·</span>
+          <a
+            href={CONTACT_EMAIL_MAILTO}
+            className="inline-flex items-center gap-2 text-primary-foreground/90 font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+          >
+            <Mail className="h-5 w-5 shrink-0" aria-hidden />
+            {CONTACT_EMAIL}
+          </a>
         </motion.div>
       </div>
     </section>

@@ -5,6 +5,13 @@ export const SITE_DESCRIPTION =
   "Top-tier AI solutions and custom software for modern businesses. Web, app, SaaS development, AI integration, and automation. We build intelligent digital products that scale.";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://smarttech.example.com";
 
+/** Display format for UI; use PHONE_TEL for href. */
+export const PHONE_NUMBER = "+1 (720) 810-2002";
+export const PHONE_TEL = "tel:+17208102002";
+
+export const CONTACT_EMAIL = "hi@smartechinc.com";
+export const CONTACT_EMAIL_MAILTO = "mailto:hi@smartechinc.com";
+
 export const SERVICES: ServiceItem[] = [
   {
     id: "web",
