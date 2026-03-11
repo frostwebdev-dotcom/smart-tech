@@ -29,9 +29,10 @@ export function ServicesPreview() {
   return (
     <SectionWrapper id="services" className="bg-background">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 56 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="text-center max-w-2xl mx-auto mb-14"
       >
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">What we do</p>
@@ -49,10 +50,10 @@ export function ServicesPreview() {
           return (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 48 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <Link href={`/services#${service.id}`} className="block h-full group">
                 <Card className="h-full transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/10 group-hover:border-primary/30 group-hover:-translate-y-0.5">
@@ -79,9 +80,10 @@ export function ServicesPreview() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="mt-12 text-center"
       >
         <Button asChild size="lg" variant="outline">

@@ -8,9 +8,10 @@ export function ProcessSection() {
   return (
     <SectionWrapper id="process" className="bg-background">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 56 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="text-center max-w-2xl mx-auto mb-14"
       >
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Our process</p>
@@ -31,10 +32,10 @@ export function ProcessSection() {
         {PROCESS_STEPS.map((item, i) => (
           <motion.div
             key={item.step}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.4, delay: i * 0.05 }}
+            transition={{ duration: 0.5, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative"
           >
             <div className="rounded-xl border border-border bg-card p-6 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all h-full flex flex-col">

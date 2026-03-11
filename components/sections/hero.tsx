@@ -25,9 +25,9 @@ export function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="max-w-3xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/90 backdrop-blur-sm px-4 py-2 text-sm text-muted-foreground mb-6"
           >
             <Sparkles className="h-4 w-4 text-primary" aria-hidden />
@@ -35,27 +35,27 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 36 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.55, delay: 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.12]"
           >
             Your idea deserves software that&nbsp;<span className="text-primary">shines</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
             We build the digital products you imagine—websites, apps, SaaS, and AI tools—so you can focus on what you love. From side projects to scale-ups, we&apos;re here for your vision.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="mt-10 flex flex-wrap gap-4"
           >
             <Button asChild size="lg" className="gap-2 text-base shadow-lg shadow-primary/25">
@@ -70,18 +70,18 @@ export function Hero() {
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground"
           >
             <Heart className="h-4 w-4 text-primary/70" aria-hidden />
             <span>Loved by founders and teams who care about quality</span>
           </motion.p>
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.48, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"
           >
             <a
@@ -102,9 +102,9 @@ export function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 56 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.65, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mt-16 md:mt-24 relative"
         >
           <div

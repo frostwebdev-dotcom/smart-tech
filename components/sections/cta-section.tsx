@@ -21,27 +21,28 @@ export function CtaSection() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_120%,rgba(255,255,255,0.08)_0%,transparent_60%)]" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 48 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-primary-foreground"
         >
           Let&apos;s bring your idea to life
         </motion.h2>
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mt-4 text-lg text-primary-foreground/90 max-w-xl mx-auto leading-relaxed"
         >
           Share your project or hobby—we&apos;ll reply with a clear plan and next steps. No pressure, just a friendly conversation.
         </motion.p>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button

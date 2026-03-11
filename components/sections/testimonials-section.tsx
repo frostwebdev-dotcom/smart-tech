@@ -10,9 +10,10 @@ export function TestimonialsSection() {
   return (
     <SectionWrapper id="testimonials" className="bg-accent/30">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 56 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="text-center max-w-2xl mx-auto mb-14"
       >
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Testimonials</p>
@@ -30,10 +31,10 @@ export function TestimonialsSection() {
           return (
             <motion.div
               key={t.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: i === 1 ? 0 : (i === 0 ? -48 : 48), y: 32 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <Card className="h-full border-border bg-card/80 hover:border-primary/20 hover:shadow-lg transition-all">
                 <CardContent className="p-6">
