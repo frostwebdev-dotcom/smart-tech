@@ -108,21 +108,21 @@ export function Hero() {
           className="mt-16 md:mt-24 relative"
         >
           <div
-            className="rounded-2xl overflow-hidden max-w-4xl shadow-2xl shadow-black/25 ring-1 ring-white/10"
-            style={{ background: "#1c282d" }}
+            className="rounded-2xl overflow-hidden max-w-5xl mx-auto shadow-[0_35px_90px_rgba(0,0,0,0.45)] ring-1 ring-[#2f7a74]/50 border border-[#2b5b5b]/45"
+            style={{ background: "#18262d" }}
           >
-            <div className="aspect-video flex flex-col min-h-[200px]">
+            <div className="aspect-video flex flex-col min-h-[220px]">
               {/* Window chrome */}
               <div
                 className="flex items-center gap-2 px-4 py-3 border-b border-white/10"
-                style={{ background: "#151e22" }}
+                style={{ background: "linear-gradient(180deg, #14222d 0%, #0f1a23 100%)" }}
               >
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" aria-hidden />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" aria-hidden />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" aria-hidden />
               </div>
               {/* Service cards — icons and labels in light teal/aqua per reference */}
-              <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-3 p-6 md:p-8 min-h-[140px]">
+              <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 p-7 md:p-9 min-h-[160px]">
                 {[
                   { Icon: Code2, label: "Web & App" },
                   { Icon: Sparkles, label: "AI Solutions" },
@@ -131,17 +131,17 @@ export function Hero() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="rounded-xl flex flex-col items-center justify-center gap-3 p-4 md:p-6 min-h-[88px] transition-all hover:brightness-110"
-                    style={{ background: "#252d33" }}
+                    className="rounded-2xl flex flex-col items-center justify-center gap-3 p-4 md:p-6 min-h-[96px] transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5"
+                    style={{ background: "#23303a" }}
                   >
                     <item.Icon
-                      className="h-7 w-7 md:h-8 md:w-8 shrink-0"
-                      style={{ color: "#7dd3c0" }}
+                      className="h-8 w-8 md:h-9 md:w-9 shrink-0"
+                      style={{ color: "#7fe0cf" }}
                       aria-hidden
                     />
                     <span
-                      className="text-xs md:text-sm font-medium text-center"
-                      style={{ color: "#7dd3c0" }}
+                      className="text-base font-semibold text-center tracking-tight"
+                      style={{ color: "#7fe0cf" }}
                     >
                       {item.label}
                     </span>
@@ -151,6 +151,20 @@ export function Hero() {
             </div>
           </div>
         </motion.div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="mt-6 text-center"
+        >
+          <a
+            href="#services"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+          >
+            See what we build
+            <ArrowRight className="h-4 w-4 rotate-90" aria-hidden />
+          </a>
+        </motion.p>
       </div>
     </section>
   );
