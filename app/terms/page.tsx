@@ -69,7 +69,14 @@ export default function TermsPage() {
             7. Contact
           </h2>
           <p className="text-muted-foreground">
-            For questions about these terms, contact us at hello@smarttech.example.com (replace with your real contact email).
+            For questions about these terms, contact us at{" "}
+            <a
+              href="mailto:hi@smartechinc.com"
+              className="text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            >
+              hi@smartechinc.com
+            </a>
+            .
           </p>
         </div>
       </SectionWrapper>

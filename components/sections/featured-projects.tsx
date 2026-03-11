@@ -12,9 +12,10 @@ export function FeaturedProjects() {
   return (
     <SectionWrapper id="projects" className="bg-accent/30">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 56 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="text-center max-w-2xl mx-auto mb-14"
       >
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Portfolio</p>
@@ -30,10 +31,10 @@ export function FeaturedProjects() {
         {FEATURED_PROJECTS.map((project, i) => (
           <motion.div
             key={project.id}
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 48 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
+            transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 hover:-translate-y-0.5 group">
               <div className="h-24 bg-gradient-to-br from-primary/15 via-primary/10 to-accent/50 group-hover:from-primary/25 group-hover:to-primary/15 transition-colors" />
@@ -64,9 +65,10 @@ export function FeaturedProjects() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="mt-12 text-center"
       >
         <Button asChild size="lg">
