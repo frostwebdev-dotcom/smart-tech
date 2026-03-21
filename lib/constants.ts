@@ -9,8 +9,8 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://smarttech.e
 export const PHONE_NUMBER = "+1 (720) 810-2002";
 export const PHONE_TEL = "tel:+17208102002";
 
-export const CONTACT_EMAIL = "hi@smartechinc.com";
-export const CONTACT_EMAIL_MAILTO = "mailto:hi@smartechinc.com";
+export const CONTACT_EMAIL = "Smarttechinc11@gmail.com";
+export const CONTACT_EMAIL_MAILTO = "mailto:Smarttechinc11@gmail.com";
 
 export const SERVICES: ServiceItem[] = [
   {

@@ -38,6 +38,15 @@ export function CtaSection() {
         >
           Share your project or hobby—we&apos;ll reply with a clear plan and next steps. No pressure, just a friendly conversation.
         </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45, delay: 0.16, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="mt-3 text-sm text-primary-foreground/80"
+        >
+          No sales pressure • Quick response • Clear communication
+        </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -2,11 +2,18 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { ArrowRight, Code2, Sparkles, Heart, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
 
 export function Hero() {
+  const [showVideo, setShowVideo] = useState(true);
+  const heroVideoSources = [
+    "/videos/agency-showcase.webm",
+    "/videos/agency-showcase.mp4",
+  ];
+
   return (
     <section
       className="relative min-h-[90vh] flex flex-col justify-center pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden"
@@ -49,7 +56,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
-            We build the digital products you imagine—websites, apps, SaaS, and AI tools—so you can focus on what you love. From side projects to scale-ups, we&apos;re here for your vision.
+            We turn your vision into software you can be proud of—so you can focus on what you love. From first idea to scale-up, we&apos;re here.
           </motion.p>
 
           <motion.div
@@ -121,33 +128,57 @@ export function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" aria-hidden />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" aria-hidden />
               </div>
-              {/* Service cards — icons and labels in light teal/aqua per reference */}
-              <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 p-7 md:p-9 min-h-[160px]">
-                {[
-                  { Icon: Code2, label: "Web & App" },
-                  { Icon: Sparkles, label: "AI Solutions" },
-                  { Icon: Code2, label: "SaaS" },
-                  { Icon: Sparkles, label: "Automation" },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className="rounded-2xl flex flex-col items-center justify-center gap-3 p-4 md:p-6 min-h-[96px] transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5"
-                    style={{ background: "#23303a" }}
+              {showVideo ? (
+                <div className="relative flex-1 min-h-[160px]">
+                  <video
+                    className="h-full w-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    onError={() => setShowVideo(false)}
+                    aria-label="SmartTech service showcase video"
                   >
-                    <item.Icon
-                      className="h-8 w-8 md:h-9 md:w-9 shrink-0"
-                      style={{ color: "#7fe0cf" }}
-                      aria-hidden
-                    />
-                    <span
-                      className="text-base font-semibold text-center tracking-tight"
-                      style={{ color: "#7fe0cf" }}
-                    >
-                      {item.label}
-                    </span>
+                    {heroVideoSources.map((src) => (
+                      <source key={src} src={src} />
+                    ))}
+                  </video>
+                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,18,0.16)_0%,rgba(6,13,18,0.36)_100%)]" />
+                  <div className="absolute left-4 bottom-4 rounded-lg border border-white/15 bg-black/25 px-3 py-2 backdrop-blur-sm">
+                    <p className="text-xs font-medium tracking-wide text-teal-100">
+                      Real product work for web, SaaS, AI, and automation
+                    </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ) : (
+                <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 p-7 md:p-9 min-h-[160px]">
+                  {[
+                    { Icon: Code2, label: "Web & App" },
+                    { Icon: Sparkles, label: "AI Solutions" },
+                    { Icon: Code2, label: "SaaS" },
+                    { Icon: Sparkles, label: "Automation" },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="rounded-2xl flex flex-col items-center justify-center gap-3 p-4 md:p-6 min-h-[96px] transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5"
+                      style={{ background: "#23303a" }}
+                    >
+                      <item.Icon
+                        className="h-8 w-8 md:h-9 md:w-9 shrink-0"
+                        style={{ color: "#7fe0cf" }}
+                        aria-hidden
+                      />
+                      <span
+                        className="text-base font-semibold text-center tracking-tight"
+                        style={{ color: "#7fe0cf" }}
+                      >
+                        {item.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

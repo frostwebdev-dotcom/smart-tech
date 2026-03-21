@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 type Service = {
   title: string;
   description: string;
+  feeling: string;
   icon: LucideIcon;
   href: string;
 };
@@ -23,28 +24,32 @@ const services: Service[] = [
   {
     title: "Web & App Development",
     description:
-      "Custom websites and scalable web applications built for performance, clarity, and business growth.",
+      "Fast, conversion-focused websites and apps engineered for real business results.",
+    feeling: "Give your clients a smooth, trustworthy first impression.",
     icon: Code2,
     href: "/services#web",
   },
   {
     title: "AI Solutions",
     description:
-      "AI-powered tools, assistants, and workflows that improve decision-making, efficiency, and customer experience.",
+      "Practical AI assistants and workflows that save time and improve decisions.",
+    feeling: "Turn complexity into clarity your team can feel every day.",
     icon: Sparkles,
     href: "/services#ai",
   },
   {
     title: "SaaS Development",
     description:
-      "Reliable SaaS products with modern architecture, secure user flows, and subscription-ready foundations.",
+      "Reliable SaaS products with secure foundations and scalable architecture.",
+    feeling: "Launch with confidence and grow without technical stress.",
     icon: Layers3,
     href: "/services#saas",
   },
   {
     title: "Automation Systems",
     description:
-      "Smart automations that reduce manual work, connect business tools, and streamline operations.",
+      "Smart automation systems that connect tools and remove repetitive manual work.",
+    feeling: "Free up your focus for strategy, not busywork.",
     icon: Workflow,
     href: "/services#automation",
   },
@@ -52,6 +57,11 @@ const services: Service[] = [
 
 const ease = { duration: 0.5 };
 const easeSlow = { duration: 0.65 };
+const nextSteps = [
+  "Share your goals",
+  "Get a clear roadmap",
+  "Build and launch with confidence",
+];
 
 export function ServicesPreview() {
   const reducedMotion = useReducedMotion();
@@ -89,7 +99,7 @@ export function ServicesPreview() {
             id="services-heading"
             className="mt-5 font-heading text-3xl md:text-5xl font-semibold tracking-tight text-white"
           >
-            High-performance digital systems built for growth
+            Choose the capability you need most
           </h2>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -98,8 +108,7 @@ export function ServicesPreview() {
             transition={reducedMotion ? { duration: 0 } : { duration: 0.5, delay: 0.1 }}
             className="mt-5 text-base md:text-lg text-slate-300/90 leading-relaxed"
           >
-            We design and engineer modern websites, apps, AI solutions, SaaS platforms,
-            and automation systems for product teams and growing companies.
+            We build real, high-performance solutions for growing businesses. Pick where you need support now, and we will guide the next step with clarity.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -123,6 +132,22 @@ export function ServicesPreview() {
             >
               <Link href="/projects">View our work</Link>
             </Button>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={reducedMotion ? { duration: 0 } : { duration: 0.4, delay: 0.25 }}
+            className="mt-6 flex flex-wrap justify-center gap-2"
+          >
+            {nextSteps.map((step) => (
+              <span
+                key={step}
+                className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-slate-300/90"
+              >
+                {step}
+              </span>
+            ))}
           </motion.div>
         </motion.div>
 
@@ -158,6 +183,9 @@ export function ServicesPreview() {
                       <h3 className="mt-5 font-heading text-xl font-semibold tracking-tight text-white">
                         {service.title}
                       </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-teal-100/85">
+                        {service.feeling}
+                      </p>
                       <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-300/90">
                         {service.description}
                       </p>

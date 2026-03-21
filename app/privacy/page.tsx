@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionWrapper } from "@/components/sections/section-wrapper";
+import { CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -78,10 +79,10 @@ export default function PrivacyPage() {
           <p className="text-muted-foreground">
             For privacy-related questions, contact us at{" "}
             <a
-              href="mailto:hi@smartechinc.com"
+              href={CONTACT_EMAIL_MAILTO}
               className="text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
             >
-              hi@smartechinc.com
+              {CONTACT_EMAIL}
             </a>
             .
           </p>
