@@ -69,11 +69,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${plusJakarta.variable} font-sans antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${plusJakarta.variable} font-sans antialiased min-h-screen min-w-0 flex flex-col overflow-x-clip`}
       >
         <JsonLdOrganization />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1 min-w-0 w-full" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

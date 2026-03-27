@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionWrapper } from "@/components/sections/section-wrapper";
+import { CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -11,7 +12,7 @@ export default function TermsPage() {
   return (
     <>
       <section className="pt-28 pb-12 md:pt-36 md:pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-foreground">
             Terms of Service
           </h1>
@@ -69,13 +70,20 @@ export default function TermsPage() {
             7. Contact
           </h2>
           <p className="text-muted-foreground">
-            For questions about these terms, contact us at hello@smarttech.example.com (replace with your real contact email).
+            For questions about these terms, contact us at{" "}
+            <a
+              href={CONTACT_EMAIL_MAILTO}
+              className="text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            >
+              {CONTACT_EMAIL}
+            </a>
+            .
           </p>
         </div>
       </SectionWrapper>
 
       <section className="py-8 border-t border-border">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
             className="text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"

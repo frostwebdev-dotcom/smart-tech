@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/contact-form";
 import { SectionWrapper } from "@/components/sections/section-wrapper";
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -13,7 +14,7 @@ export default function ContactPage() {
   return (
     <>
       <section className="pt-28 pb-12 md:pt-36 md:pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
               Contact
@@ -30,17 +31,32 @@ export default function ContactPage() {
           <div className="lg:col-span-1 space-y-8">
             <div>
               <h2 className="text-lg font-semibold text-foreground mb-2">
+                Phone
+              </h2>
+              <a
+                href={PHONE_TEL}
+                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+              >
+                <Phone className="h-5 w-5" aria-hidden />
+                {PHONE_NUMBER}
+              </a>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Call us anytime—we&apos;d love to hear about your project.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-lg font-semibold text-foreground mb-2">
                 Email
               </h2>
               <a
-                href="mailto:hello@smarttech.example.com"
-                className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                href={CONTACT_EMAIL_MAILTO}
+                className="flex min-w-0 max-w-full items-start gap-2 break-all text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
               >
-                <Mail className="h-5 w-5" aria-hidden />
-                hello@smarttech.example.com
+                <Mail className="mt-0.5 h-5 w-5 shrink-0" aria-hidden />
+                {CONTACT_EMAIL}
               </a>
               <p className="mt-2 text-sm text-muted-foreground">
-                Replace with your real email in the codebase.
+                We respond within 1–2 business days.
               </p>
             </div>
             <div>

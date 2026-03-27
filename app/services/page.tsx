@@ -33,7 +33,7 @@ export default function ServicesPage() {
   return (
     <>
       <section className="pt-28 pb-16 md:pt-36 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
               Services
@@ -86,7 +86,7 @@ export default function ServicesPage() {
       </SectionWrapper>
 
       <section className="py-16 md:py-24 border-t border-border bg-card/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center">
+        <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-semibold text-foreground">
             Not sure which service fits?
           </h2>

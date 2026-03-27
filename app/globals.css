@@ -80,6 +80,8 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 0;
+  overflow-x: clip;
 }
 
 /* Focus visible for accessibility */
@@ -88,9 +90,12 @@ body {
   outline-offset: 2px;
 }
 
-/* Smooth scroll */
+/* Smooth scroll; clip horizontal overflow from decorative layers */
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Selection */

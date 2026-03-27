@@ -4,9 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -31,25 +33,26 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300",
         scrolled
           ? "bg-[var(--nav-bg)] backdrop-blur-md border-b border-[var(--nav-border)] shadow-sm"
           : "bg-transparent"
       )}
     >
       <nav
-        className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl"
+        className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <div className="flex h-16 md:h-18 items-center justify-between">
+        <div className="flex h-16 items-center justify-between gap-2 lg:h-[4.5rem] lg:gap-3">
           <Link
             href="/"
-            className="font-heading text-xl font-semibold tracking-tight text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="SmartTech home"
           >
-            SmartTech
+            <BrandLogo className="w-[128px] sm:w-[146px] md:w-[158px] lg:w-[178px] xl:w-[194px]" priority />
           </Link>
 
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden min-w-0 lg:flex lg:flex-1 lg:justify-center lg:px-3 xl:px-4 items-center gap-4 xl:gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -67,15 +70,15 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden md:block">
-            <Button asChild size="default">
+          <div className="hidden shrink-0 lg:flex items-center">
+            <Button asChild size="default" className="shrink-0">
               <Link href="/contact">Get in touch</Link>
             </Button>
           </div>
 
           <button
             type="button"
-            className="md:hidden p-2 rounded-lg text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="lg:hidden p-2 rounded-lg text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -93,7 +96,7 @@ export function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden border-t border-border"
+              className="lg:hidden overflow-hidden border-t border-border"
             >
               <ul className="flex flex-col py-4 gap-1">
                 {navLinks.map((link) => (
@@ -112,7 +115,27 @@ export function Navbar() {
                     </Link>
                   </li>
                 ))}
-                <li className="pt-2 px-4">
+                <li className="px-4 pt-2">
+                  <a
+                    href={PHONE_TEL}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 py-3 text-sm font-medium text-primary"
+                  >
+                    <Phone className="h-4 w-4 shrink-0" aria-hidden />
+                    {PHONE_NUMBER}
+                  </a>
+                </li>
+                <li className="px-4">
+                  <a
+                    href={CONTACT_EMAIL_MAILTO}
+                    onClick={() => setOpen(false)}
+                    className="flex min-w-0 items-start gap-2 break-all py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
+                  >
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+                    {CONTACT_EMAIL}
+                  </a>
+                </li>
+                <li className="px-4">
                   <Button asChild className="w-full" size="lg">
                     <Link href="/contact" onClick={() => setOpen(false)}>
                       Get in touch

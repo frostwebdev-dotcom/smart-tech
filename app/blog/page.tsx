@@ -12,7 +12,7 @@ export default function BlogPage() {
   return (
     <>
       <section className="pt-28 pb-16 md:pt-36 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
               Blog
