@@ -18,7 +18,7 @@ export function SectionWrapper({
       id={id}
       className={cn("py-16 md:py-24 lg:py-28", className)}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         {children}
       </div>
     </Component>

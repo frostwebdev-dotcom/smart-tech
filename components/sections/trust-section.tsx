@@ -12,7 +12,7 @@ const stats = [
 export function TrustSection() {
   return (
     <section className="py-14 md:py-20 border-y border-border bg-gradient-to-b from-accent/40 to-card/50" aria-label="Trust and credibility">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-14">
           {stats.map((item, i) => {
             const Icon = item.icon;

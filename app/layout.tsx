@@ -69,17 +69,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${plusJakarta.variable} font-sans antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${plusJakarta.variable} font-sans antialiased min-h-screen min-w-0 flex flex-col overflow-x-clip`}
       >
         <JsonLdOrganization />
-        <a
-          href="#main-content"
-          className="absolute left-4 top-4 z-[100] -translate-y-full rounded bg-primary px-4 py-2 text-primary-foreground shadow-lg transition-transform focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-        >
-          Skip to main content
-        </a>
         <Navbar />
-        <main id="main-content" className="flex-1" tabIndex={-1}>
+        <main id="main-content" className="flex-1 min-w-0 w-full" tabIndex={-1}>
           {children}
         </main>
         <Footer />

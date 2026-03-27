@@ -78,7 +78,7 @@ export function ServicesPreview() {
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(20,184,166,0.08)_0%,transparent_25%),radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(20,184,166,0.18),transparent_50%),radial-gradient(ellipse_60%_40%_at_85%_90%,rgba(34,211,238,0.12),transparent_45%)]" />
       <div className="absolute inset-0 -z-10 opacity-[0.06] [background-image:radial-gradient(rgba(148,163,184,0.15)_1px,transparent_1px)] [background-size:24px_24px]" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ export function ServicesPreview() {
           </motion.p>
           <h2
             id="services-heading"
-            className="mt-5 font-heading text-3xl md:text-5xl font-semibold tracking-tight text-white"
+            className="mt-5 px-1 font-heading text-3xl text-balance md:text-5xl font-semibold tracking-tight text-white"
           >
             Choose the capability you need most
           </h2>
@@ -115,12 +115,12 @@ export function ServicesPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={reducedMotion ? { duration: 0 } : { duration: 0.45, delay: 0.2 }}
-            className="mt-9 flex flex-wrap justify-center gap-3"
+            className="mt-9 flex w-full max-w-md flex-col justify-center gap-3 self-center sm:max-w-none sm:flex-row sm:flex-wrap"
           >
             <Button
               asChild
               size="lg"
-              className="bg-teal-400 text-slate-900 hover:bg-teal-300 shadow-[0_0_28px_rgba(45,212,191,0.42)]"
+              className="w-full bg-teal-400 text-slate-900 shadow-[0_0_28px_rgba(45,212,191,0.42)] hover:bg-teal-300 sm:w-auto"
             >
               <Link href="/contact">Start your project</Link>
             </Button>
@@ -128,7 +128,7 @@ export function ServicesPreview() {
               asChild
               size="lg"
               variant="outline"
-              className="border-white/25 text-slate-100 bg-white/[0.03] hover:bg-white/[0.09]"
+              className="w-full border-white/25 bg-white/[0.03] text-slate-100 hover:bg-white/[0.09] sm:w-auto"
             >
               <Link href="/projects">View our work</Link>
             </Button>
@@ -138,7 +138,7 @@ export function ServicesPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={reducedMotion ? { duration: 0 } : { duration: 0.4, delay: 0.25 }}
-            className="mt-6 flex flex-wrap justify-center gap-2"
+            className="mt-6 flex flex-wrap justify-center gap-2 px-1"
           >
             {nextSteps.map((step) => (
               <span
@@ -171,12 +171,12 @@ export function ServicesPreview() {
                 >
                   <Link
                     href={service.href}
-                    className="group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-6 md:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:border-teal-400/30 hover:shadow-[0_0_0_1px_rgba(45,212,191,0.08)_inset,0_20px_50px_rgba(0,0,0,0.4),0_0_32px_rgba(45,212,191,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-200/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060d12]"
+                    className="group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-6 md:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-400/30 hover:shadow-[0_0_0_1px_rgba(45,212,191,0.08)_inset,0_20px_50px_rgba(0,0,0,0.4),0_0_32px_rgba(45,212,191,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-200/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060d12] md:hover:scale-[1.02]"
                     aria-label={`Learn more about ${service.title}`}
                   >
                     <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_20%_15%,rgba(45,212,191,0.12),transparent_55%)]" />
                     <div className="pointer-events-none absolute inset-0 rounded-2xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]" aria-hidden />
-                    <div className="relative flex min-h-[220px] flex-col md:min-h-[240px]">
+                    <div className="relative flex min-h-[200px] flex-col md:min-h-[240px]">
                       <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-teal-400/20 bg-teal-400/5 text-teal-200 shadow-[0_0_20px_-4px_rgba(45,212,191,0.25)] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:rotate-3 group-hover:border-teal-400/35 group-hover:shadow-[0_0_24px_-2px_rgba(45,212,191,0.35)]">
                         <Icon className="h-6 w-6" aria-hidden />
                       </div>

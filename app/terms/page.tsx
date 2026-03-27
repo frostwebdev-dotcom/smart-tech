@@ -12,7 +12,7 @@ export default function TermsPage() {
   return (
     <>
       <section className="pt-28 pb-12 md:pt-36 md:pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-foreground">
             Terms of Service
           </h1>
@@ -83,7 +83,7 @@ export default function TermsPage() {
       </SectionWrapper>
 
       <section className="py-8 border-t border-border">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
             className="text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"

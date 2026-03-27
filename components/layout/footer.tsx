@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
 import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 const footerLinks = {
   main: [
@@ -26,14 +27,15 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-12 md:py-16">
+      <div className="container mx-auto min-w-0 max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div className="lg:col-span-1">
             <Link
               href="/"
-              className="font-heading text-xl font-semibold tracking-tight text-foreground hover:text-primary transition-colors"
+              className="inline-flex rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              aria-label="SmartTech home"
             >
-              SmartTech
+              <BrandLogo className="w-[164px] sm:w-[188px] lg:w-[210px]" />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground max-w-xs leading-relaxed">
               We build the digital products you imagine—with care for your vision, your timeline, and what you love doing.
@@ -47,9 +49,9 @@ export function Footer() {
             </a>
             <a
               href={CONTACT_EMAIL_MAILTO}
-              className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+              className="mt-2 inline-flex min-w-0 max-w-full items-start gap-2 break-all text-sm font-medium text-muted-foreground hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
             >
-              <Mail className="h-4 w-4 shrink-0" aria-hidden />
+              <Mail className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
               {CONTACT_EMAIL}
             </a>
           </div>

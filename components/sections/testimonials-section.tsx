@@ -17,7 +17,7 @@ export function TestimonialsSection() {
         className="text-center max-w-2xl mx-auto mb-14"
       >
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Testimonials</p>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+        <h2 className="font-heading text-3xl text-balance md:text-4xl font-bold tracking-tight text-foreground">
           What clients say about us
         </h2>
         <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
@@ -25,7 +25,7 @@ export function TestimonialsSection() {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {TESTIMONIALS.map((t, i) => {
           const initials = t.author.split(" ").map((n) => n[0]).join("").slice(0, 2);
           return (

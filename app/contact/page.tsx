@@ -14,7 +14,7 @@ export default function ContactPage() {
   return (
     <>
       <section className="pt-28 pb-12 md:pt-36 md:pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
               Contact
@@ -50,9 +50,9 @@ export default function ContactPage() {
               </h2>
               <a
                 href={CONTACT_EMAIL_MAILTO}
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                className="flex min-w-0 max-w-full items-start gap-2 break-all text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
               >
-                <Mail className="h-5 w-5" aria-hidden />
+                <Mail className="mt-0.5 h-5 w-5 shrink-0" aria-hidden />
                 {CONTACT_EMAIL}
               </a>
               <p className="mt-2 text-sm text-muted-foreground">
