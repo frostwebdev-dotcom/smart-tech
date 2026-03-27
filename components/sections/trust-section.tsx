@@ -1,13 +1,43 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Rocket, Smile, Coffee } from "lucide-react";
 
 const stats = [
-  { value: "50+", label: "Projects delivered", icon: Rocket },
-  { value: "98%", label: "Client satisfaction", icon: Smile },
-  { value: "5+", label: "Years building together", icon: Coffee },
+  { value: 50, suffix: "+", label: "Projects delivered", icon: Rocket },
+  { value: 98, suffix: "%", label: "Client satisfaction", icon: Smile },
+  { value: 5, suffix: "+", label: "Years building together", icon: Coffee },
 ];
+
+function CountUp({ value, suffix }: { value: number; suffix: string }) {
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    const durationMs = 1100;
+    const frameMs = 16;
+    const steps = Math.max(1, Math.round(durationMs / frameMs));
+    let step = 0;
+
+    const timer = window.setInterval(() => {
+      step += 1;
+      const next = Math.min(value, Math.round((step / steps) * value));
+      setDisplay(next);
+      if (step >= steps) {
+        window.clearInterval(timer);
+      }
+    }, frameMs);
+
+    return () => window.clearInterval(timer);
+  }, [value]);
+
+  return (
+    <p className="font-heading text-3xl md:text-4xl font-bold text-foreground">
+      {display}
+      {suffix}
+    </p>
+  );
+}
 
 export function TrustSection() {
   return (
@@ -29,7 +59,7 @@ export function TrustSection() {
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-4 group-hover:bg-primary/20 transition-colors">
                   <Icon className="h-6 w-6" aria-hidden />
                 </div>
-                <p className="font-heading text-3xl md:text-4xl font-bold text-foreground">{item.value}</p>
+                <CountUp value={item.value} suffix={item.suffix} />
                 <p className="mt-1 text-sm text-muted-foreground">{item.label}</p>
               </motion.div>
             );

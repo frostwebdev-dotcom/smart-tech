@@ -2,18 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { ArrowRight, Code2, Sparkles, Heart, Phone, Mail } from "lucide-react";
+import { ArrowRight, Sparkles, Heart, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL, CONTACT_EMAIL_MAILTO } from "@/lib/constants";
 
 export function Hero() {
-  const [showVideo, setShowVideo] = useState(true);
-  const heroVideoSources = [
-    "/videos/agency-showcase.webm",
-    "/videos/agency-showcase.mp4",
-  ];
-
   return (
     <section
       className="relative min-h-[90vh] flex flex-col justify-center overflow-x-clip pt-24 pb-16 md:pt-32 md:pb-24"
@@ -110,79 +103,25 @@ export function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 56 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mt-16 md:mt-24 relative"
+          transition={{ duration: 0.6, delay: 0.56, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="relative mt-12 overflow-hidden rounded-2xl border border-primary/20 bg-slate-950/40 shadow-[0_25px_70px_rgba(2,6,23,0.45)]"
         >
-          <div
-            className="rounded-2xl overflow-hidden max-w-5xl mx-auto shadow-[0_35px_90px_rgba(0,0,0,0.45)] ring-1 ring-[#2f7a74]/50 border border-[#2b5b5b]/45"
-            style={{ background: "#18262d" }}
+          <video
+            className="aspect-video w-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="SmartTech hero showcase video"
           >
-            <div className="aspect-video flex flex-col min-h-[220px]">
-              {/* Window chrome */}
-              <div
-                className="flex items-center gap-2 px-4 py-3 border-b border-white/10"
-                style={{ background: "linear-gradient(180deg, #14222d 0%, #0f1a23 100%)" }}
-              >
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" aria-hidden />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" aria-hidden />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" aria-hidden />
-              </div>
-              {showVideo ? (
-                <div className="relative flex-1 min-h-[160px]">
-                  <video
-                    className="h-full w-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    onError={() => setShowVideo(false)}
-                    aria-label="SmartTech service showcase video"
-                  >
-                    {heroVideoSources.map((src) => (
-                      <source key={src} src={src} />
-                    ))}
-                  </video>
-                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,18,0.16)_0%,rgba(6,13,18,0.36)_100%)]" />
-                  <div className="absolute bottom-2 left-2 right-2 rounded-lg border border-white/15 bg-black/25 px-2 py-1.5 backdrop-blur-sm sm:bottom-4 sm:left-4 sm:right-auto sm:px-3 sm:py-2">
-                    <p className="text-[11px] font-medium tracking-wide text-teal-100 sm:text-xs">
-                      Real product work for web, SaaS, AI, and automation
-                    </p>
-                  </div>
-                </div>
-              ) : (
-                <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 p-7 md:p-9 min-h-[160px]">
-                  {[
-                    { Icon: Code2, label: "Web & App" },
-                    { Icon: Sparkles, label: "AI Solutions" },
-                    { Icon: Code2, label: "SaaS" },
-                    { Icon: Sparkles, label: "Automation" },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="rounded-2xl flex flex-col items-center justify-center gap-3 p-4 md:p-6 min-h-[96px] transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5"
-                      style={{ background: "#23303a" }}
-                    >
-                      <item.Icon
-                        className="h-8 w-8 md:h-9 md:w-9 shrink-0"
-                        style={{ color: "#7fe0cf" }}
-                        aria-hidden
-                      />
-                      <span
-                        className="text-base font-semibold text-center tracking-tight"
-                        style={{ color: "#7fe0cf" }}
-                      >
-                        {item.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
+            <source src="/hero.mp4" type="video/mp4" />
+          </video>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-slate-950/20" />
         </motion.div>
+
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

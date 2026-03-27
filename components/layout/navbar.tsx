@@ -43,16 +43,16 @@ export function Navbar() {
         className="container mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <div className="flex h-16 items-center justify-between gap-2 md:h-[4.5rem] md:gap-3">
+        <div className="flex h-16 items-center justify-between gap-2 lg:h-[4.5rem] lg:gap-3">
           <Link
             href="/"
             className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label="SmartTech home"
           >
-            <BrandLogo className="w-[132px] sm:w-[152px] md:w-[168px] lg:w-[188px] xl:w-[204px]" priority />
+            <BrandLogo className="w-[128px] sm:w-[146px] md:w-[158px] lg:w-[178px] xl:w-[194px]" priority />
           </Link>
 
-          <ul className="hidden min-w-0 md:flex md:flex-1 md:justify-center md:px-2 lg:px-4 items-center gap-4 lg:gap-6 xl:gap-8">
+          <ul className="hidden min-w-0 lg:flex lg:flex-1 lg:justify-center lg:px-3 xl:px-4 items-center gap-4 xl:gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -70,35 +70,15 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden shrink-0 md:flex min-w-0 items-center gap-2 lg:gap-3">
-            <a
-              href={PHONE_TEL}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded whitespace-nowrap"
-              aria-label={`Call us: ${PHONE_NUMBER}`}
-            >
-              <Phone className="h-4 w-4 shrink-0" aria-hidden />
-              {PHONE_NUMBER}
-            </a>
-            <a
-              href={CONTACT_EMAIL_MAILTO}
-              className="inline-flex min-w-0 max-w-[7.5rem] lg:max-w-[10rem] xl:max-w-[14rem] 2xl:max-w-none items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
-              aria-label={`Email us: ${CONTACT_EMAIL}`}
-              title={CONTACT_EMAIL}
-            >
-              <Mail className="h-4 w-4 shrink-0" aria-hidden />
-              <span className="truncate">{CONTACT_EMAIL}</span>
-            </a>
-            <Button asChild size="default" className="hidden xl:inline-flex shrink-0">
+          <div className="hidden shrink-0 lg:flex items-center">
+            <Button asChild size="default" className="shrink-0">
               <Link href="/contact">Get in touch</Link>
-            </Button>
-            <Button asChild size="sm" className="xl:hidden shrink-0">
-              <Link href="/contact">Contact</Link>
             </Button>
           </div>
 
           <button
             type="button"
-            className="md:hidden p-2 rounded-lg text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="lg:hidden p-2 rounded-lg text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -116,7 +96,7 @@ export function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden border-t border-border"
+              className="lg:hidden overflow-hidden border-t border-border"
             >
               <ul className="flex flex-col py-4 gap-1">
                 {navLinks.map((link) => (
